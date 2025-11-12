@@ -53,7 +53,7 @@ export default function TopList() {
         {FoodData.map((item) => (
           <li
             key={item.id}
-            className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+            className="bg-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden"
           >
             <div className="relative">
               <img
