@@ -35,7 +35,7 @@ export default function TopList() {
     <section className="max-w-6xl mx-auto px-4 py-8">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-semibold">Top List</h1>
-        <p>Our top list</p>
+        <p>Freshly Baked For You</p>
       </div>
       <div className="flex items-center justify-between mb-6">
         <div>

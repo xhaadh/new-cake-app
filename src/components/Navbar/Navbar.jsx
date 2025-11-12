@@ -21,7 +21,7 @@ const Navbar = () => {
           </ul>
           {/* login section */}
           <div className="flex gap-4 items-center">
-            {/* <img src={Profile} alt="" className="w-10 rounded-full " /> */}
+            <img src={Profile} alt="" className="w-10 rounded-full " />
             <IoIosArrowDown />
           </div>
         </div>

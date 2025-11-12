@@ -19,9 +19,9 @@ const Hero = () => {
             <button className="primary-btn hover:scale-105 duration-200">
               Oredr Now
             </button>
-            <button className="secondary-btn text-black hover:scale-105 duration-200">
+            {/* <button className="secondary-btn text-black hover:scale-105 duration-200">
               Menu
-            </button>
+            </button> */}
           </div>
         </div>
         {/* image section */}
