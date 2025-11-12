@@ -36,7 +36,7 @@ const TopList = () => {
         <p>Our top list</p>
       </div>
       {/* card section */}
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-8">
         {FoodData.map((item, index) => (
           <div
             key={index}
@@ -55,7 +55,7 @@ const TopList = () => {
             </div>
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };
