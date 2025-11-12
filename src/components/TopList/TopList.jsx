@@ -3,19 +3,9 @@ import Image1 from "../../assets/Cake-1.png";
 import Image2 from "../../assets/Cake-2.png";
 import Image3 from "../../assets/Cake-3.png";
 
-/* simple inline SVG placeholder used when an image fails to load */
-const PLACEHOLDER =
-  'data:image/svg+xml;utf8,' +
-  encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
-       <rect width="100%" height="100%" fill="#f3f4f6"/>
-       <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#9ca3af" font-size="18">Image not available</text>
-     </svg>`
-  );
-
-/* static data kept local for stability */
 const FoodData = [
   {
+    id: 1,
     image: Image1,
     rating: "⭐⭐⭐⭐⭐",
     price: "$10.99",
@@ -23,6 +13,7 @@ const FoodData = [
     desc: "Rich chocolate cake with velvety ganache.",
   },
   {
+    id: 2,
     image: Image2,
     rating: "⭐⭐⭐⭐⭐",
     price: "$12.50",
@@ -30,6 +21,7 @@ const FoodData = [
     desc: "Light sponge with fresh cream and strawberries.",
   },
   {
+    id: 3,
     image: Image3,
     rating: "⭐⭐⭐⭐⭐",
     price: "$9.99",
@@ -38,74 +30,78 @@ const FoodData = [
   },
 ];
 
-const TopList = () => {
-  // ensure we always have an array to render
-  const items = Array.isArray(FoodData) ? FoodData : [];
-
+export default function TopList() {
   return (
-    <section className="container py-14" aria-labelledby="toplist-heading">
-      <header className="text-center mb-12">
-        <h2 id="toplist-heading" className="text-4xl font-semibold">
-          Top List
-        </h2>
-        <p className="text-gray-600 mt-2">Our top picks — freshly baked and loved by customers.</p>
-      </header>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {items.map((item) => {
-          // use name as key when available; fallback to safe random key
-          const key = item && item.name ? item.name : Math.random().toString(36).slice(2, 9);
-
-          return (
-            <article
-              key={key}
-              className="bg-white/60 p-5 rounded-2xl transform hover:scale-105 transition duration-300 shadow-sm"
-              aria-label={item?.name ?? "menu item"}
-            >
-              <div className="flex justify-center">
-                <img
-                  src={item?.image ?? PLACEHOLDER}
-                  alt={item?.name ?? "Cake image"}
-                  onError={(e) => {
-                    const imgEl = e.currentTarget;
-                    if (imgEl && imgEl.src !== PLACEHOLDER) imgEl.src = PLACEHOLDER;
-                  }}
-                  className="w-36 h-36 object-cover rounded-full"
-                  loading="lazy"
-                  width={144}
-                  height={144}
-                />
-              </div>
-
-              <div className="mt-4 text-center space-y-1">
-                <div className="text-sm text-red-500" aria-hidden>
-                  {item?.rating ?? "⭐⭐⭐⭐⭐"}
-                </div>
-
-                <h3 className="text-lg font-semibold">{item?.name ?? "Delicious Cake"}</h3>
-                <p className="text-sm text-gray-600">{item?.desc ?? "Tasty and fresh."}</p>
-                <div className="text-lg font-semibold mt-1">{item?.price ?? "-"}</div>
-              </div>
-            </article>
-          );
-        })}
+    <section className="max-w-6xl mx-auto px-4 py-8">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-semibold">Top List</h1>
+        <p>Our top list</p>
       </div>
-
-      <div className="text-center mt-12">
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h2 className="text-2xl font-semibold">Top Selling</h2>
+        </div>
         <button
-          type="button"
-          className="inline-block px-6 py-3 rounded-full font-semibold bg-orange-500 text-white hover:bg-pink-600 transition"
-          // onClick={() => {
-          //   // temporary demo action — replace with navigation or load-more logic
-          //   // eslint-disable-next-line no-alert
-          //   alert("View more clicked — implement navigation or load logic here.");
-          // }}
+          className="hidden sm:inline-block text-sm font-medium px-3 py-2 rounded-md border hover:bg-gray-50"
+          aria-label="View all"
         >
-          View More
+          View all
         </button>
       </div>
+
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {FoodData.map((item) => (
+          <li
+            key={item.id}
+            className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+          >
+            <div className="relative">
+              <img
+                src={item.image}
+                alt={item.name}
+                loading="lazy"
+                className="w-full h-48 object-contain"
+              />
+
+              {/* small badge for #1 */}
+              {item.id === 1 && (
+                <span className="absolute top-3 left-3 bg-yellow-400 text-xs font-semibold px-2 py-1 rounded-full">Top</span>
+              )}
+            </div>
+
+            <div className="p-4">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-medium">{item.name}</h3>
+                <span className="text-sm font-semibold">{item.price}</span>
+              </div>
+
+              <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
+
+              <div className="flex items-center justify-between mt-4">
+                <div className="text-sm" aria-label={`Rating: ${item.rating}`}>
+                  {item.rating}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    className="px-3 py-1 rounded-md border text-sm hover:bg-gray-50"
+                    aria-label={`Add ${item.name} to cart`}
+                  >
+                    Add
+                  </button>
+
+                  <button
+                    className="px-3 py-1 rounded-md bg-gradient-to-r from-orange-500 to-orange-400 text-white text-sm shadow-md"
+                    aria-label={`Buy ${item.name} now`}
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </section>
   );
-};
-
-export default TopList;
+}
