@@ -8,16 +8,16 @@ import OurServices from "./components/OurServices/OurServices";
 import Testimonial from "./components/Testimonial/Testimonial";
 import Footer from "./components/Footer/Footer";
 
-// const bgStyle = {
-//   backgroundImage: `url(${BgImage})`,
-//   backgroundRepeat: "no-repeat",
-//   backgroundSize: "cover",
-//   backgroundPosition: "center",
-// };
+const bgStyle = {
+  backgroundImage: `url(${BgImage})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+};
 
 const App = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div style={bgStyle} className="overflow-x-hidden">
       <div className="min-h-screen bg-white/50 backdrop-blur-3xl">
         <Navbar />
         <Hero />
