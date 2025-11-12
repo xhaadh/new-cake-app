@@ -25,13 +25,13 @@ const Hero = () => {
           </div>
         </div>
         {/* image section */}
-        <div className="flex flex-col justify-center">
+        {/* <div className="flex flex-col justify-center">
           <img
             src={HeroImg}
             alt=""
             className="img-shadow w-[400px] mx-auto "
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
