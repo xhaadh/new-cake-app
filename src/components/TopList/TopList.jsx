@@ -1,7 +1,7 @@
 import React from "react";
-import Image1 from "../../assets/Cake-1.png";
-import Image2 from "../../assets/Cake-2.png";
-import Image3 from "../../assets/Cake-3.png";
+import Image1 from "../../assets/1.png";
+import Image2 from "../../assets/2.png";
+import Image3 from "../../assets/3.png";
 
 const TopList = () => {
   return (
@@ -18,12 +18,12 @@ const TopList = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {/* Card 1 */}
         <article className="bg-white/50 p-5 lg:p-6 rounded-3xl transform hover:scale-105 transition duration-300 shadow text-center">
-          {/* <img
+          <img
             src={Image1}
             alt="Classic Chocolate Cake"
             className="w-40 h-40 mx-auto object-cover rounded-full img-shadow"
             // loading="lazy"
-          /> */}
+          />
           <div className="space-y-2 mt-4">
             <p className="text-red-500">⭐⭐⭐⭐⭐</p>
             <p className="text-lg font-semibold">Classic Chocolate Cake</p>
@@ -36,12 +36,12 @@ const TopList = () => {
 
         {/* Card 2 */}
         <article className="bg-white/50 p-5 lg:p-6 rounded-3xl transform hover:scale-105 transition duration-300 shadow text-center">
-          {/* <img
+          <img
             src={Image2}
             alt="Strawberry Delight"
             className="w-40 h-40 mx-auto object-cover rounded-full img-shadow"
             // loading="lazy"
-          /> */}
+          />
           <div className="space-y-2 mt-4">
             <p className="text-red-500">⭐⭐⭐⭐⭐</p>
             <p className="text-lg font-semibold">Strawberry Delight</p>
@@ -54,12 +54,12 @@ const TopList = () => {
 
         {/* Card 3 */}
         <article className="bg-white/50 p-5 lg:p-6 rounded-3xl transform hover:scale-105 transition duration-300 shadow text-center">
-          {/* <img
+          <img
             src={Image3}
             alt="Vanilla Cloud"
             className="w-40 h-40 mx-auto object-cover rounded-full img-shadow"
             // loading="lazy"
-          /> */}
+          />
           <div className="space-y-2 mt-4">
             <p className="text-red-500">⭐⭐⭐⭐⭐</p>
             <p className="text-lg font-semibold">Vanilla Cloud</p>
